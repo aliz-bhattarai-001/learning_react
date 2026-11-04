@@ -4,7 +4,8 @@ import ContentArea from "./components/ContentArea"
 // import Terminal from "./components/Terminal/Terminal.test.tsx"
 import Terminal from "./components/Terminal/Terminal"
 import LoginForm from "./components/forms"
-import { Help, commandList } from "./components/Terminal/terminal.helpers"
+import { Help, Fastfetch } from "./components/Terminal/terminal.commands"
+import { commandList, fastfetchData } from "./components/Terminal/terminal.data"
 // import type { CommandListProps } from "./terminal.types";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <LoginForm />
       <Help {...commandList} />
       {/* Or we can also use: <Help label={commandList.label} List={commandList.List} */}
+      <Fastfetch label={fastfetchData.label} data={fastfetchData.data} />
       <Footer />
     </>
   )
