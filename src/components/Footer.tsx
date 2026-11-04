@@ -1,5 +1,5 @@
 import type { NavData } from "./Types"
-import buildNavBarList from "./Utils"
+import { BuildNavBarList } from "./Utils"
 
 function Footer() {
     const FooterNavData: NavData = {
@@ -21,7 +21,7 @@ function Footer() {
                 <li>Whatsapp: <a href="#">@al_fred_here_too</a></li>
                 <li>Facebook: <a href="#">@al_fred_writes</a></li>
                 <li>E-Mail: <a href="#">contact@alfred.com.np</a> (random)</li> */}
-                {buildNavBarList(FooterNavData)}
+                <BuildNavBarList data={FooterNavData} />
             </ul>
             <hr></hr>
             {/* Dynamic year and copyright section :) */}

@@ -1,6 +1,6 @@
 // Helpers
 import type { NavData } from "./Types"
-import buildNavBarList from "./Utils"
+import { BuildNavBarList } from "./Utils"
 
 
 function Header() {
@@ -23,7 +23,7 @@ function Header() {
                     <li><a href="#">Projects</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">More</a></li> */}
-                    {buildNavBarList(HeaderNavBar)}
+                    <BuildNavBarList data={HeaderNavBar} />
                     {/* Works as intended */}
                 </ul>
             </nav>

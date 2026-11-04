@@ -1,37 +1,36 @@
-import type { NavData } from "./Types";
+import type { NavData, DropDownData, DropDownProps, NavBarListProps } from "./Types";
 
-export default function buildNavBarList(data: NavData) {
-    return Object.entries(data).map(([navText, hrefText]) => (
-        <li key={navText}>
-            <a
-                href={hrefText}>
-                {navText}
-            </a>
-        </li>
-    )) // return buildNavBar
+export function BuildNavBarList({ data }: NavBarListProps) {
+    return (
+        <>
+            {
+                Object.entries(data).map(([navText, hrefText]) => (
+                    <li key={navText}>
+                        <a
+                            href={hrefText}>
+                            {navText}
+                        </a>
+                    </li>
+
+                ))}
+        </>
+    )// return buildNavBar
 
 } // function buildNavBar
 
+export function BuildDropDownMenu(data: DropDownProps) {
 
-/*
-// The above is equivalent to : 
-
-const rawData = Object.entries(data);
-
-// converts the object data into an array of arrays
-// eg: [
-// ["first", "second"], 
-// ["Third", "fourth"]
-]
-
-// map returns the updated data 
-const response = rawData.map(([navText, hrefText]) => {
     return (
-        <li key={navText}>
-            <a href={hrefText}>{navText}</a>
-        </li>
-    );
-});
+        <>
+            <label>{data.label}</label>
+            <select>
+                {data.options.map((each) => (
+                    <option key={each.id} >
+                        {each.value}
+                    </option>
+                ))}
+            </select >
+        </>
 
-return response;
-*/
+    )
+}
