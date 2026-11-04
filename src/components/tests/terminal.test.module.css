@@ -1,0 +1,149 @@
+/* Testing how Figma copy to code(css) would work. */
+
+/* Main terminal container */
+.terminal {
+    position: relative;
+    width: 100%;
+    max-width: 1394px;
+    margin-inline: auto;
+
+    /* Preserve original design proportions */
+    aspect-ratio: 1394 / 598;
+
+    /* Prevent the terminal from becoming too small */
+    min-height: 300px;
+}
+
+/* Main terminal frame */
+.frame1 {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #30343f;
+    border-radius: clamp(10px, 1.45vw, 20px);
+}
+
+/* Header */
+.terminalHeader {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 clamp(35px, 4.3%, 42px);
+    min-height: 35px;
+}
+
+/* Traffic light controls */
+.terminalControls {
+    position: absolute;
+    left: clamp(12px, 2.73%, 38px);
+
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.72vw, 10px);
+}
+
+.ellipse1,
+.ellipse2,
+.ellipse3 {
+    width: clamp(10px, 1.8vw, 25px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.ellipse1 {
+    background: #ff0000;
+}
+
+.ellipse2 {
+    background: #ffe600;
+}
+
+.ellipse3 {
+    background: #00ff37;
+}
+
+/* Centered terminal title */
+.terminalShell {
+    color: #ffffff;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: clamp(12px, 1.63vw, 22.77px);
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+/* Header divider */
+.terminalLine {
+    width: 100%;
+    height: 1px;
+    flex-shrink: 0;
+    background: #ffffff;
+}
+
+/* Terminal content area */
+.terminalBody {
+    flex: 1;
+    min-height: 0;
+
+    padding:
+        clamp(12px, 2.58vw, 36px) clamp(12px, 2.58vw, 36px);
+}
+
+/* Prompt */
+.terminalPrompt {
+    color: #23ce6b;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: clamp(12px, 1.72vw, 24px);
+    line-height: 1.35;
+}
+
+/* Prompt and input on the same line */
+.commandLine {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.57vw, 8px);
+}
+
+/* Input */
+.terminalInput {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #ffffff;
+    caret-color: #23ce6b;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(12px, 1.15vw, 16px);
+    font-weight: 400;
+}
+
+.terminalInput::placeholder {
+    color: #9298a5;
+}
+
+/* Small-screen adjustments */
+@media (max-width: 500px) {
+    .terminal {
+        min-height: 250px;
+        aspect-ratio: auto;
+    }
+
+    .terminalHeader {
+        min-height: 35px;
+    }
+}
