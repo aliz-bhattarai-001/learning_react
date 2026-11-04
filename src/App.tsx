@@ -5,7 +5,8 @@ function App() {
   return (
 
     <>
-    
+    <h1>Hello World From React App</h1>
+    <p>I guess this marks the start of my journey.</p>
     </>
   )
 }
