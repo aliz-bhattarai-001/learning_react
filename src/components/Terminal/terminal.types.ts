@@ -1,7 +1,9 @@
+import { type ReactNode } from "react";
+
 
 export type TerminalEntry = {
-    command: string,
-    output: string,
+    command: string;
+    output: ReactNode;
 }
 
 export type CommandList = {
