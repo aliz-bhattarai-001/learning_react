@@ -1,21 +1,50 @@
-import type { ParsedCommand } from "./terminal.types"
+import type { ParsedCommand, ErrorCode, TerminalError, ParseResult, CmdName } from "./terminal.types";
+import { commandList, errorMessages } from "./terminal.data";
 
 
-export function parseCommand(input: string): ParsedCommand {
-    const trimmed = input.trim().toLowerCase();
 
-    // if empty
-    if (trimmed === "") {
-        return { cmd: "", args: [] };
+export function createError(code: ErrorCode): TerminalError {
+    return {
+        code,
+        message: errorMessages[code],
+    };
+} // func createError
+
+export function parseCommands(input: string): ParseResult {
+
+    //Firstly Check for empty input
+    if (input.trim() === "") {
+        return {
+            success: false,
+            error: {
+                code: "MISSING_ARGS",
+                message: "Please enter a command."
+            }
+        };
     }
 
-    const parts = trimmed.split(" ");
+    // Split input into command and arguments : /\s+/ handles tabs or multiple spaces
+    const parts = input.trim().split(/\s+/);
 
-    // Separate the main command from its arguments
-    const command = parts[0];
-    const args = parts.slice(1);
+    const command = parts[0].toLowerCase();
 
-    return { cmd: command, args: args };
+    // Check whether the command exists in commandList or not
+    if (!Object.hasOwn(commandList, command)) {
+        return {
+            success: false,
+            error: {
+                code: "COMMAND_NOT_FOUND",
+                message: "Command not found."
+            }
+        };
+    }
+
+    // Return the successfully parsed command
+    return {
+        success: true,
+        command: {
+            cmd: command as CmdName,
+            args: parts.slice(1)
+        }
+    };
 }
-
-

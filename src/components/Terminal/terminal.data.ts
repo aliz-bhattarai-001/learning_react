@@ -1,26 +1,28 @@
-import type { CommandListProps, FastFetchProps } from "./terminal.types";
+import type { CmdList, ErrorCode } from "./terminal.types";
+
+export const commandList: CmdList = {
+
+    cd: {
+        description: "does something",
+        usage: "cd <path/section>",
+    },
+    help: {
+        description: "Does something as well",
+        usage: "help or help <command-name> for more details.",
+        examples: ["help cd", "help echo", "help help"],
+        options: ["'help' itself", "any other command"]
+    }
 
 
-// update the list of commands here: 
-export const commandList: CommandListProps = {
-    label: "Help Section",
-    List: [
-        { command: "help", info: "Shows all available commands" },
-        { command: "clear", info: "Clears the terminal screen" },
-        { command: "fastfetch", info: "Get profile details in fastfetch-like manner" }
-    ]
-}; // dataHolder commandList
+} // dataHolder scommandList
 
-
-export const fastfetchData: FastFetchProps = {
-    label: "Fastfetch Details",
-    data: [
-        { key: "UserName", value: "Aliz Bhattarai" },
-        { key: "Age", value: "20" },
-        { key: "Gender", value: "Male" },
-        { key: "Hobbies", value: "Somethings" },
-        { key: "Education", value: "Undergrad Student of BCT @Pulchowk Campus, IOE, TU" },
-        { key: "Projects", value: "go-shell, anime-recommender-api" },
-        { key: "Contact", value: "contact@example.com.np" }
-    ]
-}; // dataHolder fastfetchData
+export const errorMessages: Record<ErrorCode, string> = {
+    MISSING_ARGS: "Required arguments are missing.",
+    COMMAND_NOT_FOUND: "Command not found.",
+    INVALID_SYNTAX: "Invalid command syntax.",
+    MISCELLANEOUS_ERROR: "An unexpected error occurred.",
+    PAGE_NOT_FOUND: "Page not found.",
+    SECTION_NOT_FOUND: "Section not found.",
+    NO_FILE_SPECIFIED: "No file was specified.",
+    NO_PATH_SPECIFIED: "No path was specified.",
+};
