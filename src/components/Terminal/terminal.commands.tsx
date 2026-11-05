@@ -33,3 +33,20 @@ export function Fastfetch({ data, label }: FastFetchProps) {
         </>
     ) // return Fastfetch()
 } // function Fastfetch()
+
+export function WhoAmI(cmd:string){
+    return (
+        <>
+        <label>Who Am I section </label>
+        <ul>
+                  
+        </ul>
+        </>
+    )
+}
+
+export function ChangeDir(targetDir: string){
+    const parsedTargetDir = targetDir.replace("~/", "");
+
+    return 
+}

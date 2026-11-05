@@ -11,6 +11,8 @@ export function handleCommand(cmd: string, args: string[]) {
 
         case "clear":
             return <Terminal />
+        case "cd":
+            // return <ChangeDir targetDir={args[0]}/>
         default:
             return <Help  {...commandList} />
 
